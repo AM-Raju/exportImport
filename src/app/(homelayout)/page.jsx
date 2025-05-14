@@ -1,6 +1,7 @@
 import CoreValues from "@/components/home/coreValues/CoreValues";
 import FeaturedProducts from "@/components/home/featuredProducts/FeaturedProducts";
 import Slider from "@/components/home/slider/Slider";
+import VideoGallery from "@/components/home/videoGallery/VideoGallery";
 import WhyChooseUs from "@/components/home/whyChooseUs/WhyChooseUs";
 import WorldMap from "@/components/home/worldMap/WorldMap";
 
@@ -17,6 +18,7 @@ const homePage = () => {
       <FeaturedProducts></FeaturedProducts>
       <WorldMap></WorldMap>
       <WhyChooseUs></WhyChooseUs>
+      <VideoGallery></VideoGallery>
       <div className="h-52"></div>
     </div>
   );

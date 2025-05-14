@@ -55,7 +55,7 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 bg-white">
+    <section className=" bg-white">
       <div className="container mx-auto px-4">
         {/* Heading */}
 
