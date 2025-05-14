@@ -50,7 +50,7 @@ const Slider = () => {
           <div
             key={slide.id}
             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+              index === current ? "opacity-100 z-10" : "opacity-0 z-10"
             }`}
           >
             <img
@@ -64,13 +64,13 @@ const Slider = () => {
         {/* Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/60 hover:bg-white p-2 rounded-full text-gray-800"
+          className="absolute top-1/2 left-16 transform -translate-y-1/2 bg-white/60 hover:bg-white p-2 rounded-full text-gray-800 z-20"
         >
           <FaChevronLeft size={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/60 hover:bg-white p-2 rounded-full text-gray-800"
+          className="absolute top-1/2 right-16 transform -translate-y-1/2 bg-white/60 hover:bg-white p-2 rounded-full text-gray-800 z-20"
         >
           <FaChevronRight size={24} />
         </button>
@@ -90,9 +90,11 @@ const Slider = () => {
       </div>
 
       {/* Container content over the slider (optional) */}
-      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+      <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-10">
         <div className="container mx-auto text-center text-white">
-          {/* You can place heading/buttons here */}
+          <h2 className="text-7xl font-bold text-orange-500">
+            Fresh Vegetables
+          </h2>
         </div>
       </div>
     </div>

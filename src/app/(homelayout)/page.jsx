@@ -1,4 +1,8 @@
+import CoreValues from "@/components/home/coreValues/CoreValues";
+import FeaturedProducts from "@/components/home/featuredProducts/FeaturedProducts";
 import Slider from "@/components/home/slider/Slider";
+import WhyChooseUs from "@/components/home/whyChooseUs/WhyChooseUs";
+import WorldMap from "@/components/home/worldMap/WorldMap";
 
 export const metadata = {
   title: "Home | MK Engineering",
@@ -9,6 +13,11 @@ const homePage = () => {
   return (
     <div>
       <Slider></Slider>
+      <CoreValues></CoreValues>
+      <FeaturedProducts></FeaturedProducts>
+      <WorldMap></WorldMap>
+      <WhyChooseUs></WhyChooseUs>
+      <div className="h-52"></div>
     </div>
   );
 };

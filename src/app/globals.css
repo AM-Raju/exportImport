@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-green: #5bae4d;
+  --color-dark-green: #307d3d;
+  --color-light-green: #c8e4c9;
+  --color-neutral-bg: #f8f9f9;
+  --color-accent: #a0887e;
+  --color-primary-t: #323232;
+  --color-secondary-t: #757575;
+  --color-alert: #feea39;
+}
+
 @keyframes bounce-in-right {
   0% {
     transform: translateX(100%);

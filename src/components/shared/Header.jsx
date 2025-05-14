@@ -40,7 +40,7 @@ const Header = () => {
     <header className="bg-white shadow z-50 relative">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link href="/" className="text-2xl font-bold text-gray-800">
+        <Link href="/" className="text-2xl font-bold text-primary-green">
           {/* Text Logo */}
           MyBrand
           {/* Optional Image Logo */}
@@ -48,12 +48,12 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-0 items-center">
+        <nav className="hidden md:flex space-x-0 items-center ">
           {navItems.map((item, index) =>
             item.dropdown ? (
               <div key={index} className="relative group">
                 <button
-                  className={`relative px-8 py-2 font-medium ${
+                  className={`relative px-8 py-2 font-medium  ${
                     isActive(item.dropdown[0].href)
                       ? "text-white"
                       : "text-gray-700"
@@ -68,26 +68,26 @@ const Header = () => {
                     </span>
                   </span>
 
-                  <span className="absolute -top-10 left-0 w-3/4 opacity-0 group-hover:opacity-100 h-20 bg-blue-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
-                  <span className="absolute -bottom-10  right-0 w-3/4 opacity-0 group-hover:opacity-100 h-20 bg-blue-500 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
+                  <span className="absolute -top-10 left-0 w-3/4 opacity-0 group-hover:opacity-100 h-20 bg-primary-green transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
+                  <span className="absolute -bottom-10  right-0 w-3/4 opacity-0 group-hover:opacity-100 h-20 bg-primary-green transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
                 </button>
 
-                <div className="absolute left-0 mt-2 w-44 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 z-20">
+                <div className="absolute left-0 mt-2 w-44 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 z-50">
                   {item.dropdown.map((sub, idx) => (
                     <Link
                       key={idx}
                       href={sub.href}
-                      className={`block px-8 py-2 text-sm  relative text-gray-700 group/sub ${
+                      className={`block px-4 py-2 text-sm  relative text-gray-700 group/sub ${
                         isActive(sub.href) ? "text-white" : ""
-                      } overflow-hidden`}
+                      } overflow-hidden `}
                     >
                       <span className="relative z-10 group-hover/sub:text-white">
                         {sub.name}
                       </span>
 
-                      <span className="absolute inset-0 bg-blue-500 opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500" />
-                      <span className="absolute top-0 left-0 w-1/2 h-full bg-blue-500 transform -translate-x-full opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
-                      <span className="absolute bottom-0 right-0 w-1/2 h-full bg-blue-500 transform translate-x-full opacity-0 group-hover/sub:opacity-100  group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
+                      <span className="absolute inset-0 bg-primary-green opacity-0 group-hover/sub:opacity-100 transition-opacity duration-500" />
+                      <span className="absolute top-0 left-0 w-1/2 h-full bg-primary-green transform -translate-x-full opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
+                      <span className="absolute bottom-0 right-0 w-1/2 h-full bg-primary-green transform translate-x-full opacity-0 group-hover/sub:opacity-100  group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
                     </Link>
                   ))}
                 </div>
@@ -97,15 +97,15 @@ const Header = () => {
                 key={index}
                 href={item.href}
                 className={`relative px-8 py-2 text-gray-700 font-medium group/sub overflow-hidden ${
-                  isActive(item.href) ? "text-red-500" : "text-gray-700"
+                  isActive(item.href) ? "text-primary-green" : "text-gray-700"
                 }`}
               >
                 <span className="relative z-10 group-hover/sub:text-white">
                   {item.name}
                 </span>
 
-                <span className="absolute -top-10 left-0 w-3/4 h-20 bg-blue-500 transform -translate-x-full opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
-                <span className="absolute -bottom-10 right-0 w-3/4 h-20 bg-blue-500 transform translate-x-full opacity-0 group-hover/sub:opacity-100  group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
+                <span className="absolute -top-10 left-0 w-3/4 h-20 bg-primary-green transform -translate-x-full opacity-0 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-r-full" />
+                <span className="absolute -bottom-10 right-0 w-3/4 h-20 bg-primary-green transform translate-x-full opacity-0 group-hover/sub:opacity-100  group-hover/sub:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
               </Link>
             )
           )}
