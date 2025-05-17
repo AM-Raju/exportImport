@@ -47,7 +47,7 @@ const Header = () => {
               <div key={index} className="relative group">
                 <button
                   className={`relative px-8 py-2 font-medium  ${
-                    isActive(item.dropdown[0].href)
+                    item.dropdown.some((sub) => isActive(sub.href))
                       ? "text-primary-green"
                       : "text-gray-700"
                   } group-hover:text-white z-10 overflow-hidden`}
