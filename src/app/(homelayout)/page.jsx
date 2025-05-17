@@ -21,8 +21,6 @@ const homePage = () => {
       <WhyChooseUs></WhyChooseUs>
       <VideoGallery></VideoGallery>
       <HomeContact></HomeContact>
-
-      <div className="h-52"></div>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import Schedule from "@/components/calendly/Schedule";
 
 const HomeContact = () => {
   return (
-    <div className="relative text-white container mx-auto">
+    <div className="relative text-white container mx-auto mb-12">
       {/*  <div className="relative text-white w-[85%] sm:w-[60%] lg:max-xl:w-[50%] xl:max-2xl:w-[90%] 2xl:w-[80%]"> */}
       {/* Main modal content */}
       <div className="flex items-center justify-center bg-dark-green  ">

@@ -1,28 +1,26 @@
 import Image from "next/image";
 
 import SocialIcons from "../ui/SocialIcons";
+import Logo from "../ui/Logo";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-mk-blue text-white py-10">
+    <footer className="relative bg-dark-green text-white py-10">
       {/* Background Image with Opacity */}
-      <div className="absolute inset-0 bg-[url('https://i.ibb.co.com/Pbs69Ym/footer-bg.webp')] bg-cover bg-center opacity-60"></div>
+      <div className="absolute inset-0 bg-dark-green bg-[url('https://i.ibb.co/WvDMDyWn/footer-bg2.webp')] opacity-5 bg-cover bg-center "></div>
 
       {/* Footer Content */}
       <div className="relative container mx-auto px-6">
         {/* Logo and Text */}
         <div className="text-center">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={120}
-            height={50}
-            className="mx-auto mb-4"
-          />
+          <div className="mb-8 flex items-center justify-center">
+            <Logo></Logo>
+          </div>
           <p className="max-w-xl mx-auto text-gray-300">
-            Empowering industries with expert electrical solutions, safety
-            audits, and compliance consultancy. We ensure efficiency,
-            reliability, and regulatory success for a safer, smarter future.
+            Bringing the best of nature to the world—fresh, safe, and
+            sustainably grown agro products. We connect farmers to global
+            markets with trust, quality, and a commitment to agricultural
+            excellence.
           </p>
         </div>
 

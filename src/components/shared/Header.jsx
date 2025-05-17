@@ -3,28 +3,27 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
 import { RiArrowDownSLine } from "react-icons/ri";
+import Logo from "../ui/Logo";
 
 const navItems = [
   { name: "Home", href: "/" },
   {
-    name: "Services",
+    name: "Profile",
+
     dropdown: [
-      { name: "Web Design", href: "/services/web-design" },
-      { name: "Development", href: "/services/development" },
-      { name: "SEO", href: "/services/seo" },
+      { name: "About Us", href: "/profile/aboutUs" },
+      { name: "Vision & Mission", href: "/profile/visionMission" },
+      { name: "Why Us", href: "/profile/whyUs" },
+      { name: "Certifications", href: "/profile/certifications" },
     ],
   },
   {
-    name: "About",
-    dropdown: [
-      { name: "Company", href: "/about/company" },
-      { name: "Team", href: "/about/team" },
-      { name: "Careers", href: "/about/careers" },
-    ],
+    name: "Products",
+    href: "/products",
   },
+
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -34,19 +33,13 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const toggleMobile = () => setMobileOpen(!mobileOpen);
-  const isActive = (href) => pathname.startsWith(href);
+  const isActive = (href) => pathname.endsWith(href);
 
   return (
     <header className="bg-white shadow z-50 relative">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link href="/" className="text-2xl font-bold text-primary-green">
-          {/* Text Logo */}
-          MyBrand
-          {/* Optional Image Logo */}
-          {/* <Image src="/logo.png" alt="Logo" width={120} height={40} /> */}
-        </Link>
-
+        <Logo></Logo>
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-0 items-center ">
           {navItems.map((item, index) =>
@@ -55,7 +48,7 @@ const Header = () => {
                 <button
                   className={`relative px-8 py-2 font-medium  ${
                     isActive(item.dropdown[0].href)
-                      ? "text-white"
+                      ? "text-primary-green"
                       : "text-gray-700"
                   } group-hover:text-white z-10 overflow-hidden`}
                 >
@@ -78,7 +71,7 @@ const Header = () => {
                       key={idx}
                       href={sub.href}
                       className={`block px-4 py-2 text-sm  relative text-gray-700 group/sub ${
-                        isActive(sub.href) ? "text-white" : ""
+                        isActive(sub.href) ? "text-primary-green" : ""
                       } overflow-hidden `}
                     >
                       <span className="relative z-10 group-hover/sub:text-white">
