@@ -12,13 +12,18 @@ const Certifications = () => {
         </div>
       </div>
 
-      <div className="my-12  mx-auto space-y-8 px-4 md:max-lg:px-2  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:max-lg:gap-2">
+      <div className=" my-12  mx-auto  px-4 md:max-lg:px-2 2xl:px-0  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:max-lg:gap-2">
         {Array.from({ length: 6 }).map((arr, index) => (
+          /* card */
           <div key={index} className=" border p-4">
-            <div className="w-full h-96 bg-gray-500 ">
-              <img src="#" alt="" />
+            <div className="w-full aspect-4/5 bg-gray-500 overflow-hidden ">
+              <img
+                src="https://i.ibb.co/Xfpkf4cZ/About-Us.webp"
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h3 className="text-center mt-2">Certificate Name</h3>
+            <h3 className="text-center mt-2 ">Certificate Name</h3>
           </div>
         ))}
       </div>
