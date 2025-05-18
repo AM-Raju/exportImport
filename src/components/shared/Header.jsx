@@ -24,7 +24,7 @@ const navItems = [
     href: "/products",
   },
 
-  { name: "Blog", href: "/blog" },
+  { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -44,7 +44,7 @@ const Header = () => {
         <nav className="hidden md:flex space-x-0 items-center ">
           {navItems.map((item, index) =>
             item.dropdown ? (
-              <div key={index} className="relative group">
+              <div key={index} className="relative  group">
                 <button
                   className={`relative px-8 py-2 font-medium  ${
                     item.dropdown.some((sub) => isActive(sub.href))
@@ -52,7 +52,7 @@ const Header = () => {
                       : "text-gray-700"
                   } group-hover:text-white z-10 overflow-hidden`}
                 >
-                  <span className="flex items-center ">
+                  <span className="flex items-center">
                     <span className="relative z-10 group-hover:text-white">
                       {item.name}
                     </span>
@@ -65,7 +65,9 @@ const Header = () => {
                   <span className="absolute -bottom-10  right-0 w-3/4 opacity-0 group-hover:opacity-100 h-20 bg-primary-green transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out rounded-l-full" />
                 </button>
 
-                <div className="absolute left-0 mt-2 w-44 bg-white rounded shadow-lg opacity-0 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 z-50">
+                <div
+                  className={`absolute h-0 group-hover:h-[calc(36px_*_${item.dropdown.length})] overflow-hidden group-hover:overflow-visible  left-0 mt-2 w-44 bg-white rounded shadow-lg opacity-50 group-hover:opacity-100 transform scale-95 group-hover:scale-100 transition-all duration-300 z-50`}
+                >
                   {item.dropdown.map((sub, idx) => (
                     <Link
                       key={idx}
