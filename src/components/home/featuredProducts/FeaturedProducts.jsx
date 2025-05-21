@@ -1,11 +1,20 @@
+"use client";
 import Button from "@/components/ui/Button";
 import FeaturedProductCard from "@/components/ui/FeaturedProductCard";
 import Heading from "@/components/ui/Heading";
 import SubText from "@/components/ui/SubText";
+import {
+  useGetFeaturedProductsQuery,
+  useGetProductsQuery,
+} from "@/redux/api/productApi";
 import Link from "next/link";
 import React from "react";
 
 const FeaturedProducts = () => {
+  const { data: featuredProducts, isLoading } = useGetFeaturedProductsQuery({});
+
+  console.log("Featured Products", featuredProducts);
+
   return (
     <div className="mb-4">
       <Heading>Featured Products</Heading>

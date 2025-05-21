@@ -11,7 +11,6 @@ const navItems = [
   { name: "Home", href: "/" },
   {
     name: "Profile",
-
     dropdown: [
       { name: "About Us", href: "/profile/aboutUs" },
       { name: "Vision & Mission", href: "/profile/visionMission" },
@@ -27,6 +26,8 @@ const navItems = [
   { name: "Blogs", href: "/blogs" },
   { name: "Contact", href: "/contact" },
 ];
+
+// console.log("item lenght", navItems[1].dropdown.length);
 
 const Header = () => {
   const pathname = usePathname();

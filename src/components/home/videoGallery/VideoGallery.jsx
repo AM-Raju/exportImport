@@ -40,9 +40,6 @@ const VideoGallery = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="p-4">
-                <h3 className="text-lg font-semibold">{video.title}</h3>
-              </div> */}
             </div>
           ))}
         </div>

@@ -3,52 +3,9 @@ import ProductCard from "@/components/ourProducts/ProductCard";
 import Button from "@/components/ui/Button";
 
 import Heading from "@/components/ui/Heading";
-import React, { useState } from "react";
-
-const products = [
-  {
-    id: 1,
-    name: "Apple",
-    category: "Fruits",
-    image: "/images/apple.jpg",
-    price: "$2/kg",
-  },
-  {
-    id: 2,
-    name: "Banana",
-    category: "Fruits",
-    image: "/images/banana.jpg",
-    price: "$1.5/kg",
-  },
-  {
-    id: 3,
-    name: "Carrot",
-    category: "Vegetables",
-    image: "/images/carrot.jpg",
-    price: "$1/kg",
-  },
-  {
-    id: 4,
-    name: "Broccoli",
-    category: "Vegetables",
-    image: "/images/broccoli.jpg",
-    price: "$2.5/kg",
-  },
-  {
-    id: 5,
-    name: "Mango",
-    category: "Vegetables",
-    image: "/images/mango.jpg",
-    price: "$3/kg",
-  },
-  {
-    id: 6,
-    name: "Potato",
-    category: "Vegetables",
-    image: "/images/potato.jpg",
-    price: "$0.8/kg",
-  },
-];
+import { useGetCategoriesQuery } from "@/redux/api/categoryApi";
+import { useGetProductsQuery } from "@/redux/api/productApi";
+import React, { useEffect, useState } from "react";
 
 // Get unique categories from product data
 const getCategories = (products) => {
@@ -58,14 +15,17 @@ const getCategories = (products) => {
 };
 
 const ProductPage = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeTab, setActiveTab] = useState("All");
 
-  const categories = getCategories(products);
+  const { data: categories, isLoading: categoryLoading } =
+    useGetCategoriesQuery({});
 
-  const filteredProducts =
-    activeCategory === "All"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  const { data: products, isLoading } = useGetProductsQuery({ activeTab });
+
+  let allTabs;
+  if (!categoryLoading) {
+    allTabs = ["All", ...categories];
+  }
 
   return (
     <section className="mb-12">
@@ -76,19 +36,20 @@ const ProductPage = () => {
 
         {/* Accordion Tabs */}
         <div className="flex flex-wrap justify-center gap-1 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 border transition-all ${
-                activeCategory === category
-                  ? "bg-green-600 text-white border-green-600"
-                  : "bg-white text-green-600 border-green-600 hover:bg-green-100"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+          {categories &&
+            allTabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-5 py-2 border transition-all cursor-pointer ${
+                  activeTab === tab
+                    ? "bg-green-600 text-white border-green-600"
+                    : "bg-white text-green-600 border-green-600 hover:bg-green-100"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
         </div>
 
         {/* Products Grid */}
@@ -105,9 +66,13 @@ const ProductPage = () => {
               xl:grid-cols-4 
               2xl:grid-cols-4 "
             >
-              {filteredProducts.map((num, index) => (
-                <ProductCard key={index}></ProductCard>
-              ))}
+              {isLoading ? (
+                <p>Loading</p>
+              ) : (
+                products.map((product, index) => (
+                  <ProductCard product={product} key={index}></ProductCard>
+                ))
+              )}
             </div>
           </div>
         </div>

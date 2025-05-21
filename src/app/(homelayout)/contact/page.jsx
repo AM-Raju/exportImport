@@ -23,8 +23,8 @@ const ContactPage = () => {
         </div>
       </section>
       <HomeContact></HomeContact>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-white p-6 shadow-xs border border-primary-green text-primary-green col-span-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-8">
+        <div className="bg-white p-6 shadow-xs border border-primary-green text-primary-green w-full mx-auto ">
           <h2 className="text-xl font-semibold mb-4">Address</h2>
           <p className="text-gray-700 mb-2">
             📍 H #183, R#02, Avenue #03, DOHS Mirpur, Dhaka-1216
@@ -32,18 +32,18 @@ const ContactPage = () => {
           <p className="text-gray-700 mb-2">
             📧 Email:{" "}
             <a href="mailto:info@example.com" className="text-blue-600">
-              info@mkengineeringbd.com
+              info@indugrowbd.com
             </a>
           </p>
           <p className="text-gray-700">📞 01718-595979, 01714-942810</p>
         </div>
         {/* Contact Form */}
-        <div className="bg-white shadow-lg border border-primary-green p-6 w-full mx-auto col-span-2">
+        <div className="bg-white shadow-lg border border-primary-green p-6 w-full mx-auto lg:col-span-2">
           <h2 className="text-xl font-semibold mb-4 text-primary-green">
             Send Us a Message
           </h2>
           <form className="space-y-4">
-            <div className="flex gap-2">
+            <div className="lg:flex gap-2 lg:gap-6">
               <div className="flex-1">
                 <label className="block text-gray-700 font-medium">
                   Name<span className="text-red-500">*</span>
@@ -80,7 +80,7 @@ const ContactPage = () => {
 
             <button
               type="submit"
-              className="w-full bg-primary-green text-white py-2 rounded-md font-semibold hover:bg-primary-green transition-all duration-500"
+              className=" cursor-pointer w-full bg-primary-green text-white py-2 rounded-md font-semibold hover:bg-primary-green transition-all duration-500"
             >
               Send Message
             </button>
