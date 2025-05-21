@@ -27,17 +27,20 @@ const FeaturedProducts = () => {
         <div className="max-w-screen-2xl mx-auto px-4">
           <div
             className="grid gap-6 
-              grid-cols-1 
-            
+              grid-cols-1
               sm:grid-cols-2 
               md:grid-cols-2 
               lg:grid-cols-3 
               xl:grid-cols-4 
               2xl:grid-cols-4 "
           >
-            {Array.from({ length: 4 }).map((num, index) => (
-              <FeaturedProductCard key={index}></FeaturedProductCard>
-            ))}
+            {!isLoading &&
+              featuredProducts.map((featuredProduct, index) => (
+                <FeaturedProductCard
+                  featuredProduct={featuredProduct}
+                  key={index}
+                ></FeaturedProductCard>
+              ))}
           </div>
         </div>
         <div className="w-72 mx-auto my-8">

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
+import ProductModal from "../modal/ProductModal";
 
-const FeaturedProductCard = () => {
+const FeaturedProductCard = ({ featuredProduct }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const modalOpenFn = () => {
+    return setModalOpen(true);
+  };
   return (
     <div className="bg-white border-primary-green/30 border   shadow  p-4 h-full ">
       <div className="relative">
@@ -46,8 +52,15 @@ const FeaturedProductCard = () => {
       </h4>
 
       <div className="my-4 ">
-        <Button customClass={"bg-primary-green py-2"}>View Details</Button>
+        <Button modalOpenFn={modalOpenFn} customClass={"bg-primary-green py-2"}>
+          View Details
+        </Button>
       </div>
+      <ProductModal
+        product={featuredProduct}
+        isModalOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
 };
