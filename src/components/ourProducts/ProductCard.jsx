@@ -4,15 +4,25 @@ import React, { useState } from "react";
 import ProductModal from "../modal/ProductModal";
 
 const ProductCard = ({ product }) => {
-  const { _id, localName, englishName, availability } = product;
+  const { _id, localName, englishName, availability, images } = product;
 
   const [isModalOpen, setModalOpen] = useState(false);
+
+  const [selectedImage, setSelectedImage] = useState(images[0]);
+
+  const thumbnailImages = [
+    "https://i.ibb.co/qML5RCk4/product1.webp",
+    "https://i.ibb.co/XxM0zgBC/product2.webp",
+    "https://i.ibb.co/qML5RCk4/product1.webp",
+  ];
 
   const modalOpenFn = () => {
     return setModalOpen(true);
   };
 
-  console.log("single product", product);
+  const handleThumbnailClick = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
 
   return (
     <div>
@@ -20,33 +30,27 @@ const ProductCard = ({ product }) => {
         <div className="relative">
           <div className="border-primary-green border-b ">
             <img
-              className="hover:scale-105 transition-all duration-500"
-              src="https://i.ibb.co/qML5RCk4/product1.webp"
-              alt=""
+              className="hover:scale-105 transition-all duration-500 w-full h-auto"
+              src={selectedImage}
+              alt="Product"
             />
           </div>
           <div className="flex items-center justify-around max-w-48 absolute bottom-2 left-[calc(50%-80px)] gap-2 mx-auto">
-            <div className="w-12 h-12">
-              <img
-                className="border-primary-green border"
-                src="https://i.ibb.co/qML5RCk4/product1.webp"
-                alt=""
-              />
-            </div>
-            <div className="w-12 h-12">
-              <img
-                className="border-primary-green border"
-                src="https://i.ibb.co/XxM0zgBC/product2.webp"
-                alt=""
-              />
-            </div>
-            <div className="w-12 h-12">
-              <img
-                className="border-primary-green border"
-                src="https://i.ibb.co/qML5RCk4/product1.webp"
-                alt=""
-              />
-            </div>
+            {images.map((img, index) => (
+              <button
+                key={index}
+                className={`w-12 h-12 cursor-pointer border border-primary-green ${
+                  selectedImage === img ? " bg-primary-green" : ""
+                }`}
+                onClick={() => handleThumbnailClick(img)}
+              >
+                <img
+                  src={img}
+                  alt={`Thumbnail ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
           </div>
         </div>
 

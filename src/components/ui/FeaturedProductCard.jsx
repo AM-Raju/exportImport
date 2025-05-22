@@ -3,6 +3,7 @@ import Button from "./Button";
 import ProductModal from "../modal/ProductModal";
 
 const FeaturedProductCard = ({ featuredProduct }) => {
+  const { localName } = featuredProduct;
   const [isModalOpen, setModalOpen] = useState(false);
 
   const modalOpenFn = () => {
@@ -43,7 +44,7 @@ const FeaturedProductCard = ({ featuredProduct }) => {
         </div>
       </div>
 
-      <h3 className="font-semibold text-xl text-primary-t">Ussce</h3>
+      <h3 className="font-semibold text-xl text-primary-t">{localName}</h3>
       <h4 className="text-secondary-t ">
         <span className="font-semibold">English Name:</span> Bitter Gourd
       </h4>

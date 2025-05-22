@@ -5,6 +5,7 @@ import Slider from "@/components/home/slider/Slider";
 import VideoGallery from "@/components/home/videoGallery/VideoGallery";
 import WhyChooseUs from "@/components/home/whyChooseUs/WhyChooseUs";
 import WorldMap from "@/components/home/worldMap/WorldMap";
+import SampleProductCard from "@/components/ui/SampleProductCard";
 
 export const metadata = {
   title: "Home | MK Engineering",
@@ -16,6 +17,7 @@ const homePage = () => {
     <div>
       <Slider></Slider>
       <CoreValues></CoreValues>
+
       <FeaturedProducts></FeaturedProducts>
       <WorldMap></WorldMap>
       <WhyChooseUs></WhyChooseUs>
