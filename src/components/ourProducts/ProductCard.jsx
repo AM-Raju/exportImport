@@ -28,9 +28,9 @@ const ProductCard = ({ product }) => {
     <div>
       <div className="bg-white border-primary-green/30 border   shadow  p-4 h-full ">
         <div className="relative">
-          <div className="border-primary-green border-b ">
+          <div className="border-primary-green border-b overflow-hidden ">
             <img
-              className="hover:scale-105 transition-all duration-500 w-full h-auto"
+              className="hover:scale-125 transition-all duration-1000 w-full h-auto"
               src={selectedImage}
               alt="Product"
             />
@@ -40,7 +40,7 @@ const ProductCard = ({ product }) => {
               <button
                 key={index}
                 className={`w-12 h-12 cursor-pointer border border-primary-green ${
-                  selectedImage === img ? " bg-primary-green" : ""
+                  selectedImage === img ? " bg-primary-green/30" : ""
                 }`}
                 onClick={() => handleThumbnailClick(img)}
               >
